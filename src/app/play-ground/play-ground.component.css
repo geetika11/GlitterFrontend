@@ -36,3 +36,26 @@
     text-decoration: none;
     cursor: pointer;
   }
+
+  .card-header{
+    
+    background-color: midnightblue;
+    font-family: cursive;
+    border: 1px solid black;
+    text-align: center;
+    width: 250px;
+    color: white; 
+}
+
+.card-body{
+flex: 1 1 auto;
+    padding: 1.25rem;  
+    background: space;
+    width: 250px;
+    border:1px solid black;
+    font-family: serif;
+    text-align: center;}
+.first{
+  
+  width: 110px;
+}
