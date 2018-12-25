@@ -17,8 +17,8 @@
     <p>{{user.LastName}}</p>
     <p>Created At: {{user.CreatedAt}}</p>
     <p>{{user.Email}}</p>
-    <p>user ID: {{user.ID}}</p>
-    <button class="btn btn-danger" (click)="Follow(user.ID)">Follow</button>
+    <p>user ID: {{user.UserId}}</p>
+    <button class="btn btn-success" (click)="Follow(user.UserId)">Follow</button>
     <img [src]="user.Image">
     <hr>
   </div>

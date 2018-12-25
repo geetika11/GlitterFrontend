@@ -26,9 +26,9 @@ export class SearchComponent implements OnInit {
     })
   }
 
-  public Follow(usertoFollowID){
+  public Follow(UsertoFollowID:string){
     var ID=localStorage.getItem('ID');
-    this.apiservice.userToFollow(ID,usertoFollowID).subscribe(data=>{
+    this.apiservice.userToFollow(ID,UsertoFollowID).subscribe(data=>{
       window.location.reload();
       this.route.navigate['./Following']
     });

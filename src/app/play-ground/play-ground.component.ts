@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PlaygroundService } from './playground.service'
 import { Router } from '@angular/router'
 import { _document } from '@angular/platform-browser/src/browser';
+import{ApiService} from '../api.service';
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-play-ground',
@@ -15,7 +17,7 @@ export class PlayGroundComponent implements OnInit {
 
 
 
-  constructor(private playgroundService: PlaygroundService, private router: Router) { }
+  constructor(private playgroundService: PlaygroundService, private apiservice:ApiService,private route:Router) { }
 
   ngOnInit() {
     var modal = document.getElementById('myModal');
@@ -94,7 +96,28 @@ export class PlayGroundComponent implements OnInit {
         this.router.navigate(['/dashboard']);
           });
   }
-  
+
+  LikeTweet(TweetID:String){
+    var id=localStorage.getItem('ID').toString(); 
+    this.apiservice.LikeTweet(id,TweetID) .subscribe(
+
+      (data) => {
+        window.location.reload();
+        this.router.navigate(['/dashboard']);
+          });
+  }
+
+
+  DislikeTweet(TweetID:String){
+    var id=localStorage.getItem('ID').toString(); 
+    this.apiservice.DislikeTweet(id,TweetID) .subscribe(
+
+      (data) => {
+        window.location.reload();
+        this.router.navigate(['/dashboard']);
+          });
+  }
+
   public UpdatedMessageID;
 
 

@@ -25,4 +25,14 @@ export class ApiService {
     const userRegistrationObject = Object.assign({}, { UserID,UserToFollowID});
     return this.http.post(`${environment.apiUrl}/user/follow`, userRegistrationObject);
   }
+
+  LikeTweet(LoggedInUserID:String,TweetID:String){
+    const LikeObject = Object.assign({}, { LoggedInUserID,TweetID});
+    return this.http.post(`${environment.apiUrl}/user/like`, LikeObject);
+
+  }
+  DislikeTweet(UserID:String,TweetID:String){
+    return this.http.delete(`${environment.apiUrl}/user/dislike/${UserID}/${TweetID}`);
+  }
+
 }
