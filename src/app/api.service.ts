@@ -20,4 +20,9 @@ export class ApiService {
     const userRegistrationObject = Object.assign({}, { UserID,UserToFollowID});
     return this.http.post(`${environment.apiUrl}/user/unfollow`, userRegistrationObject);
   }
+
+  userToFollow(UserID:string,UserToFollowID:string){
+    const userRegistrationObject = Object.assign({}, { UserID,UserToFollowID});
+    return this.http.post(`${environment.apiUrl}/user/follow`, userRegistrationObject);
+  }
 }

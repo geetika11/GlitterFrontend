@@ -51,14 +51,6 @@ export class PlayGroundComponent implements OnInit {
 
   }
 
-
-
-
-  // saveTweets(Tweets){
-
-  //   console.log(this.selected);
-  // }
-
   newTweet(formValues) {
     var id = localStorage.getItem('ID').toString();
     console.log(formValues.message);
@@ -66,6 +58,7 @@ export class PlayGroundComponent implements OnInit {
       .subscribe(
 
         (data) => {
+          window.location.reload();
           this.router.navigate(['/dashboard']);
         },
         (error) => {
@@ -76,26 +69,31 @@ export class PlayGroundComponent implements OnInit {
       );
   }
 
-  // deleteTweet(tweetID){
-  //   var id=localStorage.getItem('ID').toString(); 
-  //   this.playgroundService.deleteTweet(id,tweetID);
-  // }
+ 
 
   
   editTweet(formValues) {
 
     console.log(formValues);
     var id = localStorage.getItem('ID').toString();
-    var tweetID=this.UpdatedMessageID;
+    var TweetID=this.UpdatedMessageID;
     console.log(formValues.UpdatedMessage);
-    console.log(tweetID);
+    console.log(TweetID);
       console.log(id);
-    this.playgroundService.editTweet(id, formValues.UpdatedMessage, tweetID).subscribe((status: Object) => {
-      
+    this.playgroundService.editTweet(id, formValues.UpdatedMessage, TweetID).subscribe((status: Object) => {
+      window.location.reload();
       this.router.navigate(['/dashboard']);
     });
   }
-  
+  deleteTweet(TweetID:String){
+    var id=localStorage.getItem('ID').toString(); 
+    this.playgroundService.deleteTweet(id,TweetID) .subscribe(
+
+      (data) => {
+        window.location.reload();
+        this.router.navigate(['/dashboard']);
+          });
+  }
   
   public UpdatedMessageID;
 
@@ -108,9 +106,9 @@ export class PlayGroundComponent implements OnInit {
     var span = document.getElementById("close2");
 
     var UpdatedMessageID= document.getElementById("UpdatedMessageID") as HTMLInputElement;
-     UpdatedMessageID.value=tweet.MessageId;
+     UpdatedMessageID.value=tweet.TweetID;
     
-    this.UpdatedMessageID=tweet.MessageId;
+    this.UpdatedMessageID=tweet.TweetID;
     
     var UpdatedMessage=document.getElementById("UpdatedMessage") as HTMLInputElement;
     UpdatedMessage.value=tweet.Message;

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {SearchService} from './search.service'
+import{ApiService} from '../api.service';
+import {Router} from '@angular/router'
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -7,7 +9,7 @@ import {SearchService} from './search.service'
 })
 export class SearchComponent implements OnInit {
  
-  constructor(private searchService:SearchService) { }
+  constructor(private searchService:SearchService, private apiservice:ApiService,private route:Router) { }
 
   public users:Array<Object>;
   ngOnInit() {
@@ -24,4 +26,12 @@ export class SearchComponent implements OnInit {
     })
   }
 
+  public Follow(usertoFollowID){
+    var ID=localStorage.getItem('ID');
+    this.apiservice.userToFollow(ID,usertoFollowID).subscribe(data=>{
+      window.location.reload();
+      this.route.navigate['./Following']
+    });
+    }
+    
 }
