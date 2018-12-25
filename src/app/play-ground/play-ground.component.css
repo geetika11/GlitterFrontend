@@ -52,6 +52,7 @@ flex: 1 1 auto;
     padding: 1.25rem;  
     background: space;
     width: 250px;
+    height: 250px; 
     border:1px solid black;
     font-family: serif;
     text-align: center;}

@@ -1,50 +1,49 @@
+
+<body>
+<div class="signup-form">
 <div class="container">
-    <div style="margin:50px;" class="bg-light">
+    <div >
 
         <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)" class="well form-horizontal">
             <fieldset>
-                <div class="col-md-6 offset-3">
-                    <h1 class="text-center">Login</h1>
+                <div class="col-md-6">
+                    <h1 >Login</h1>
                     <div class="form-group">
                         <ul>
                             <li *ngFor="let errorMessage of errorList" class="errormessage">{{errorMessage}}</li>
                         </ul>
-
                     </div>
-
-                    <div class="row">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <label for="Email" class="col-md-4">Email</label>
-                                <input class="form-control" (ngModel)="Email" type="email" name="Email" id="Email"
-                                     required>
-                            </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-paper-plane"></i>
+                            </span>
+                            <input (ngModel)="Email" type="email" name="Email" id="Email" class="form-control abc"
+                                placeholder="Enter Email Address" required>
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <label for="Password" class="col-md-4">Password</label>
-                                <input class="form-control" (ngModel)="Password" type="password" name="Password" id="Password"
-                                     required>
-                            </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                            <input (ngModel)="Password" type="password" name="Password" id="Password" class="form-control"
+                                placeholder="Enter Password" required>
+                            <em *ngIf="signupForm.controls.Password?.invalid && (signupForm.controls.Password?.touched || showValidationMessages)">Required</em>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group">
-                            <!--<span class="comment-form-control-wrap submit" (mouseenter)="showValidationMessages = true"
-                                (mouseleave)="showValidationMessages = false">-->
-                                
+                            <span class="comment-form-control-wrap submit input-group-addon" (mouseenter)="showValidationMessages = true"
+                                (mouseleave)="showValidationMessages = false"></span>
                                 <div class="input-group">
-                                <input type="submit" name="submit" id="submit" class="form-control" value="login" class="btn text-centre"
-                                    [disabled]="loginForm.invalid">
-                            <!--</span>-->
-                        </div>
-                        </div>
+                                    <input type="submit" name="submit" id="submit" class="form-control" value="login"
+                                        class="btn text-centre" [disabled]="loginForm.invalid">
+                                    <!--</span>-->
+                                </div>                        
+                            </div>
                     </div>
                 </div>
             </fieldset>
         </form>
     </div>
+    </div>
 </div>
+</body>

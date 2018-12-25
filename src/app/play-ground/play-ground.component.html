@@ -21,19 +21,19 @@
   <div class="container">
     <div class="row">
       <div *ngIf="selected">
-        <div class="col-md-3 offset-3" *ngFor="let tweet of selected">
+        <div class="col-md-4 offset-3" *ngFor="let tweet of selected">
       <div class="card-header">User Information</div>
       <div class="card-body">
           <p>Message: {{tweet.Message}}<br>
           UserName: {{tweet.UserName}}<br>
           Created At:  {{tweet.CreatedAt | date}}</p>
          
-          <div class="col-md-6" >
+          <div class="col-md-4" >
             <button class="btn btn-danger btn-md first"  id="deletecalling" (click)="deleteTweet(tweet.TweetID)">Delete</button>
             <button class="btn btn-success btn-md first" (click)="openPopup(tweet)" id="myBtn2">Edit</button>
            
             <button class="btn btn-primary btn-md first" (click)="LikeTweet(tweet.TweetID)" id="myBtn2">LikeTweet</button>
-            <button class="btn btn-default btn-md first" (click)="DislikeTweet(tweet.TweetID)" id="myBtn2">DislikeTweet</button>
+            <button class="btn btn-warning btn-md first" (click)="DislikeTweet(tweet.TweetID)" id="myBtn2">DislikeTweet</button>
   
             <br>
           </div>
