@@ -1,89 +1,97 @@
 <body>
-<div class="signup-form">
-    <div >
-        <div class="container">
-            <div class="respond text-center">
-                <h1>Create Account</h1>
-                <form #signupForm="ngForm" (ngSubmit)="signup(signupForm.value)" class="comment-form">
-                    <div class="row" *ngIf="errorList?.length > 0">
-                        <div>
-                            <ul>
-                                <li *ngFor="let errorMessage of errorList" class="errormessage">{{errorMessage}}</li>
-                            </ul>
+    <div class="signup-form">
+        <div>
+            <div class="container">
+                <div class="respond text-center">
+                    <h1>Create Account</h1>
+                    <form #signupForm="ngForm" class="comment-form">
+                        <div class="row" *ngIf="errorList?.length > 0">
+                            <div>
+                                <ul>
+                                    <li *ngFor="let errorMessage of errorList" class="errormessage">{{errorMessage}}</li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-user"></i> </span>
-                            <input (ngModel)="FirstName" type="FirstName" name="FirstName" id="FirstName" class="form-control"
-                                placeholder="Enter Your FirstName" required>
-                                <em *ngIf="signupForm.controls.LastName?.invalid && (signupForm.controls.LastName?.touched || showValidationMessages)">Required</em>
-                      
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class=" input-group-addon"><i class="fa fa-user"></i></span>
-                            <input (ngModel)="LastName" type="LastName" name="LastName" id="LastName" class="form-control"
-                                placeholder="Enter Your LastName" required>
-                            <em *ngIf="signupForm.controls.LastName?.invalid && (signupForm.controls.LastName?.touched || showValidationMessages)">Required</em>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-paper-plane"></i>
-                            </span>
-                            <input (ngModel)="Email" type="email" name="Email" id="Email" class="form-control"
-                                placeholder="Enter Your Email Address" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                            <input (ngModel)="Password" type="password" name="Password" id="Password" class="form-control"
-                                placeholder="Enter Password" required>
-                            <em *ngIf="signupForm.controls.Password?.invalid && (signupForm.controls.Password?.touched || showValidationMessages)">Required</em>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class=" input-group-addon"><i class="fa fa-phone"></i></span>
-                            <input (ngModel)="PhoneNumber" type="phoneNumber" name="PhoneNumber" id="PhoneNumber" class="form-control"
-                                placeholder="Enter Your Contact Number" required>
-                            <em *ngIf="signupForm.controls.PhoneNumber?.invalid && (signupForm.controls.PhoneNumber?.touched || showValidationMessages)">Required</em>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon"></span>
-                            <input (ngModel)="Image" type="file" name="Image" id="Image" class="form-control"
-                                placeholder="Upload Your Profile Image" required>
-                            <em *ngIf="signupForm.controls.Image?.invalid && (signupForm.controls.Image?.touched || showValidationMessages)">Required</em>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i> </span>
 
-                            <select (ngModel)="Country" name="Country" id="Country">
-                                <option value=''>select</option>
-                                <option value="India" ng-selected>India</option>
-                                <option value="USA">USA</option>
-                                <option value="UK">UK</option>
-                            </select>
+                                <input (ngModel)="FirstName" type="FirstName" name="FirstName" id="FirstName" class="form-control"
+                                    placeholder="Enter Your FirstName" required>
+                                <div *ngIf="checkName"> First Name Required </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row mt20">
-                        <div class="col-md-12">
-                            <span class="comment-form-control-wrap submit input-group-addon" (mouseenter)="showValidationMessages = true"
-                                (mouseleave)="showValidationMessages = false">
-                                <input type="submit" name="submit" id="submit" class="btn btn-primary btn-block btn-lg"
-                                    value="Sign Up" [disabled]="signupForm.invalid">
-                            </span>
+
+
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class=" input-group-addon"><i class="fa fa-user"></i></span>
+
+                                <input (ngModel)="LastName" type="LastName" name="LastName" id="LastName" class="form-control"
+                                    placeholder="Enter Your LastName" required>
+                                <div *ngIf="checkName">
+                                    Last Name is Required</div>
+
+                            </div>
                         </div>
-                    </div>
-                </form>
-            </div><!-- /.respond -->
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-paper-plane"></i>
+                                </span>
+
+                                <input (ngModel)="Email" type="email" name="Email" id="Email" class="form-control"
+                                    placeholder="Enter Your Email Address" required>
+                                <div *ngIf="checkEmail"> Email required</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+
+                                <input (ngModel)="Password" type="password" name="Password" id="Password" class="form-control"
+                                    placeholder="Enter Password" required>
+                                <div *ngIf="checkPassword"> password is required </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class=" input-group-addon"><i class="fa fa-phone"></i></span>
+
+                                <input (ngModel)="PhoneNumber" type="phoneNumber" name="PhoneNumber" id="PhoneNumber"
+                                    class="form-control" placeholder="Enter Your Contact Number" required>
+                                <div *ngIf="checkPhoneNumber"> phone number is required </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"></span>
+
+                                <input (ngModel)="Image" type="file" name="Image" id="Image" class="form-control"
+                                    placeholder="Upload Your Profile Image" required>
+                                <div *ngIf="checkImage">image have jpg </div>
+                            </div>
+                        </div>
+                       <!-- <div class="form-group">-->
+                        <div class="row">
+                            <div class="col-md-4 offset-4">
+                                <select id="Country" name="Country" class="form-control bfh-countries" data-country="US"  data-flags="true"
+                                             (ngModel)="Country"></select>
+                            </div>
+                        </div>
+                        <!--</div>-->
+                        <div class="row mt20">
+                            <div class="col-md-12">
+                                <span class="comment-form-control-wrap submit input-group-addon" (mouseenter)="showValidationMessages = true"
+                                    (mouseleave)="showValidationMessages = false">
+                                    <input [disabled]="signupForm.invalid" type="submit" class="btn btn-lg btn-success btn-block"
+                                        (click)="adduser(signupForm.value)" value="Sign Up">
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </div><!-- /.respond -->
+            </div>
         </div>
     </div>
-</div>
 </body>

@@ -29,12 +29,14 @@
           Created At:  {{tweet.CreatedAt | date}}</p>
          
           <div class="col-md-4" >
-            <button class="btn btn-danger btn-md first"  id="deletecalling" (click)="deleteTweet(tweet.TweetID)">Delete</button>
-            <button class="btn btn-success btn-md first" (click)="openPopup(tweet)" id="myBtn2">Edit</button>
-           
-            <button class="btn btn-primary btn-md first" (click)="LikeTweet(tweet.TweetID)" id="myBtn2">LikeTweet</button>
-            <button class="btn btn-warning btn-md first" (click)="DislikeTweet(tweet.TweetID)" id="myBtn2">DislikeTweet</button>
-  
+              <div *ngIf="tweet.IsAuthor">
+                <button class="btn btn-danger btn-md first" id="deletecalling" (click)="deleteTweet(tweet.TweetID)">Delete</button>
+                <button class="btn btn-success btn-md first" (click)="openPopup(tweet)" id="myBtn2">Edit</button>
+              </div>
+              <div *ngIf="!tweet.IsAuthor">
+                <button *ngIf="!tweet.isLiked" class="btn btn-primary btn-md first" (click)="LikeTweet(tweet.TweetID)" id="myBtn2">LikeTweet</button>
+                <button *ngIf="tweet.isLiked" class="btn btn-warning btn-md first" (click)="DislikeTweet(tweet.TweetID)" id="myBtn2">DislikeTweet</button>
+              </div> 
             <br>
           </div>
           </div>

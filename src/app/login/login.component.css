@@ -2,7 +2,7 @@ body {
     color: #999;
  background: url("http://acshub.co.uk/hubassets/uploads/2016/09/acs-website-background-building-e1472862899804.jpg");
     font-family: 'Roboto', sans-serif;
-    height: 700px;
+    /*height: 700px;*/
 }
 .form-control, .form-control:focus, .input-group-addon {
     border-color: #e1e1e1;

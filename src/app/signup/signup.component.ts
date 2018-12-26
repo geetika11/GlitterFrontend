@@ -10,22 +10,68 @@ export class SignupComponent implements OnInit {
 
   errorList: string[] = [];
   showValidationMessages: Boolean;
+  checkName: boolean = false;
+  checkEmail: boolean = false;
+  
+  checkPassword: boolean = false;
+  
+  checkPhoneNumber: boolean = false;
+  
+  checkImage: boolean = false;
+  
 
   constructor(private apiService: ApiService,private router: Router) { }
 
   ngOnInit() {
   }
-  signup(formValues) {
-    this.apiService.RegisterUser(formValues.FirstName, formValues.LastName,  formValues.Email, formValues.Password,formValues.Country,formValues.PhoneNumber,formValues.Image)
-      .subscribe(
-        (data) => {
-          this.router.navigate(['/login']);
-        },
-        (error) => {
-          this.errorList = [];
-          const errorMessage = error['error']['message'];
-          this.errorList.push(`${errorMessage}`);
-        }
-      );
+
+
+
+  adduser(formvalue) {
+    console.log(formvalue)
+    let flag = true;
+   
+    if (!formvalue.FirstName ||!formvalue.LastName) {
+      this.checkName = true;
+      flag = false;
+  }
+   if (!new RegExp("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$").test(formvalue.Email)) {
+      this.checkEmail = true;
+      flag = false;
+  }
+    if (!new RegExp("[0-9]{10}").test(formvalue.PhoneNumber)) {
+      this.checkPhoneNumber = true;
+      flag = false;
+  }
+   if (!new RegExp("^(?=.*?[a-zA-Z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,10}$").test(formvalue.Password)) {
+      this.checkPassword = true;
+      flag = false;
+  }
+   
+   if (!formvalue.Image) {
+      this.checkImage = true;
+      flag = false;
+  }
+
+     
+    if(flag){
+      console.log("call is being made");
+      
+
+     // console.log(newUser);
+
+      this.apiService.RegisterUser(formvalue.FirstName,formvalue.LastName,formvalue.Email,formvalue.Password,formvalue.Country,formvalue.PhoneNumber,formvalue.Image)
+          .subscribe(res => {
+              console.log(res);
+              if (res == true) {
+                  this.router.navigate(["login"]);
+              }
+          })
+  }
+
+
+
+
+  
   }
 }

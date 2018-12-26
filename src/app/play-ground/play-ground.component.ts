@@ -60,15 +60,16 @@ export class PlayGroundComponent implements OnInit {
       .subscribe(
 
         (data) => {
-          window.location.reload();
-          this.router.navigate(['/dashboard']);
+         
         },
         (error) => {
           this.errorList = [];
           const errorMessage = error['error']['message'];
           this.errorList.push(`${errorMessage}`);
         }
-      );
+      )
+      window.location.reload();
+      this.router.navigate(['/Play-Ground']);;
   }
 
  
