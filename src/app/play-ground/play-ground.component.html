@@ -1,16 +1,21 @@
+<!-- <div *ngIf="!loggedIn">
+  You should be logged in to view this page.....
+  <a routerLink="/login" routerLinkActive="active-link">Login</a> 
+</div> -->
+
+<!-- <div *ngIf="loggedIn"> -->
 <app-dashboard></app-dashboard>
 <div class="row">
     <div class="col-md-4 offset-3 ">
-      <button id="myBtn">Compose new tweet</button>
-  
+      <button id="myBtn">Compose New Tweet</button>
       <!-- The Modal -->
       <div id="myModal" class="modal">
   
         <!-- Modal content -->
         <div class="modal-content col-md-4">
           <form #tweetForm="ngForm" (ngSubmit)="newTweet(tweetForm.value)" class="comment-form">
-            <h3>Compose New tweet <span class="float-right" id="close">&times;</span></h3>
-            <textarea type="text" rows="5" cols="45" id="Message" name="Message" (ngModel)="Message"></textarea>
+            <h3>Compose New tweet(Maximum 240 characters) <span class="float-right" id="close">&times;</span></h3>
+            <textarea type="text" maxlength="240" rows="5" cols="45" id="Message" name="Message" (ngModel)="Message"></textarea>
             <br>
             <button class="btn btn-primary btn-sm" type="submit">Done</button>
           </form>
@@ -55,3 +60,6 @@
           </div>
         </div>
       </div>
+    </div>
+    </div>
+    <!-- </div> -->

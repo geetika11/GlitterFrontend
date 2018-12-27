@@ -1,3 +1,11 @@
+<div *ngIf="!loggedIn">
+        You should be logged in to view this page.....
+        <a routerLink="/login" routerLinkActive="active-link">Login</a> 
+</div>
+    
+<div *ngIf="loggedIn">
+
+
 <app-dashboard></app-dashboard>
 
 <h2 class="abc"> Following:{{Count}}</h2>
@@ -20,6 +28,7 @@
               </div>
           </div>
       </div>
+  </div>
   </div>
   </div>
   

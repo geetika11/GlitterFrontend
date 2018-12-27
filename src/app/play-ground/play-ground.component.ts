@@ -18,8 +18,18 @@ export class PlayGroundComponent implements OnInit {
 
 
   constructor(private playgroundService: PlaygroundService, private apiservice:ApiService,private router:Router) { }
-
+  public ID:String;
+  public loggedIn:boolean;
   ngOnInit() {
+    this.ID=localStorage.getItem('ID');
+    if(this.ID!=null){
+      this.loggedIn=true;
+    }
+    else
+    this.loggedIn=false;
+    
+    console.log(this.ID);
+    
     var modal = document.getElementById('myModal');
 
     // Get the button that opens the modal
@@ -50,7 +60,8 @@ export class PlayGroundComponent implements OnInit {
       console.log(this.selected);
       //this.saveTweets(data);
     });
-
+    
+  
   }
 
   newTweet(formValues) {
@@ -69,7 +80,7 @@ export class PlayGroundComponent implements OnInit {
         }
       )
       window.location.reload();
-      this.router.navigate(['/Play-Ground']);;
+      this.router.navigate(['/Play-Ground']);
   }
 
  

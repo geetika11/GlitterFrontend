@@ -4,14 +4,7 @@
             <div class="container">
                 <div class="respond text-center">
                     <h1>Create Account</h1>
-                    <form #signupForm="ngForm" class="comment-form">
-                        <div class="row" *ngIf="errorList?.length > 0">
-                            <div>
-                                <ul>
-                                    <li *ngFor="let errorMessage of errorList" class="errormessage">{{errorMessage}}</li>
-                                </ul>
-                            </div>
-                        </div>
+                    <form #signupForm="ngForm" class="comment-form">                       
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i> </span>
@@ -21,18 +14,13 @@
                                 <div *ngIf="checkName"> First Name Required </div>
                             </div>
                         </div>
-
-
-
                         <div class="form-group">
                             <div class="input-group">
                                 <span class=" input-group-addon"><i class="fa fa-user"></i></span>
-
                                 <input (ngModel)="LastName" type="LastName" name="LastName" id="LastName" class="form-control"
                                     placeholder="Enter Your LastName" required>
                                 <div *ngIf="checkName">
-                                    Last Name is Required</div>
-
+                                    Last Name Required</div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -51,7 +39,7 @@
 
                                 <input (ngModel)="Password" type="password" name="Password" id="Password" class="form-control"
                                     placeholder="Enter Password" required>
-                                <div *ngIf="checkPassword"> password is required </div>
+                                <div *ngIf="checkPassword"> Password required and contains atleast 1 capital letter 1 special character and 1 alphanumeric character </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -60,7 +48,7 @@
 
                                 <input (ngModel)="PhoneNumber" type="phoneNumber" name="PhoneNumber" id="PhoneNumber"
                                     class="form-control" placeholder="Enter Your Contact Number" required>
-                                <div *ngIf="checkPhoneNumber"> phone number is required </div>
+                                <div *ngIf="checkPhoneNumber"> Phone number required </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -68,24 +56,22 @@
                                 <span class="input-group-addon"></span>
 
                                 <input (ngModel)="Image" type="file" name="Image" id="Image" class="form-control"
-                                    placeholder="Upload Your Profile Image" required>
-                                <div *ngIf="checkImage">image have jpg </div>
+                                    placeholder="Upload Your Profile Image"required>
+                                <div *ngIf="checkImage" class="bg-danger">No Image is uploaded </div>
                             </div>
                         </div>
                        <!-- <div class="form-group">-->
-                        <div class="row">
-                            <div class="col-md-4 offset-4">
-                                <select id="Country" name="Country" class="form-control bfh-countries" data-country="US"  data-flags="true"
-                                             (ngModel)="Country"></select>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <select  id="Country" name="Country" class="form-control bfh-countries" data-country="US" data-flags="true" (ngModel)="Country"></select>
                             </div>
                         </div>
                         <!--</div>-->
                         <div class="row mt20">
                             <div class="col-md-12">
-                                <span class="comment-form-control-wrap submit input-group-addon" (mouseenter)="showValidationMessages = true"
-                                    (mouseleave)="showValidationMessages = false">
-                                    <input [disabled]="signupForm.invalid" type="submit" class="btn btn-lg btn-success btn-block"
-                                        (click)="adduser(signupForm.value)" value="Sign Up">
+                                <span class="comment-form-control-wrap submit" (mouseenter) = "showValidationMessages = true" (mouseleave) = "showValidationMessages = false">
+                                    <input type="submit" class="btn btn-lg btn-success btn-block"
+                                        (click)="adduser(signupForm.value)" value="Sign Up" [disabled]="signupForm.invalid" >
                                 </span>
                             </div>
                         </div>

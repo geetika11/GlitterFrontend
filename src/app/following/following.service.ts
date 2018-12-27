@@ -9,7 +9,7 @@ export class FollowingService {
 
   constructor(private http:HttpClient) { }
 
-  getFollowing(userId:string){
+  getFollowing(userId:String){
    
     return this.http.get(`${environment.apiUrl}/user/following/${userId}`);
 

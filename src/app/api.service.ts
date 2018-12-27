@@ -10,6 +10,7 @@ export class ApiService {
   constructor(private http: HttpClient) { }
   RegisterUser(FirstName: string, LastName: string, Email: string, Password: string, Country: string, PhoneNumber: string, Image: string) {
     {
+      console.log('fkjfkdj'+ Image)
       const userRegistrationObject = Object.assign({}, { FirstName, LastName, Email, Password, Country, PhoneNumber, Image });
       return this.http.post(`${environment.apiUrl}/User`, userRegistrationObject);
 
