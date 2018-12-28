@@ -9,8 +9,6 @@ export class AnalyticsService {
 
   constructor(private http:HttpClient) { }
 getAnalyticsData(){
-
-
   return this.http.get(`${environment.apiUrl}/analytics`);
 }
 }

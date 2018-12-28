@@ -72,6 +72,7 @@ body {
 .signup-form a {
     color: #19aa8d;
     text-decoration: none;
+
 }	
 .signup-form a:hover {
     text-decoration: underline;
@@ -92,3 +93,7 @@ body {
 ::placeholder{
     color: white;
 }
+.btn:disabled {
+    cursor: not-allowed;
+    pointer-events: all !important;
+     }

@@ -10,6 +10,7 @@ import {Router} from '@angular/router'
 })
 export class LoginComponent implements OnInit {
   errorList: string[] = [];
+  invalidLoginCredentials = false;
   showValidationMessages: Boolean;
   constructor(private apiService: ApiService,private router: Router) { }
   x;
@@ -21,8 +22,10 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (data) => {
           this.x=data;
+          
           localStorage.setItem('ID',this.x.ID);
           localStorage.setItem('Username',this.x.Username);
+          this.invalidLoginCredentials = false;
           this.router.navigate(['/dashboard']);
         },
         (error) => {

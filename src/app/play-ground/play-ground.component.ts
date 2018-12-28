@@ -96,7 +96,7 @@ export class PlayGroundComponent implements OnInit {
       console.log(id);
     this.playgroundService.editTweet(id, formValues.UpdatedMessage, TweetID).subscribe((status: Object) => {
       window.location.reload();
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/Play-Ground']);
     });
   }
   deleteTweet(TweetID:String){
@@ -105,7 +105,7 @@ export class PlayGroundComponent implements OnInit {
 
       (data) => {
         window.location.reload();
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/Play-Ground']);
           });
   }
 
@@ -115,7 +115,7 @@ export class PlayGroundComponent implements OnInit {
 
       (data) => {
         window.location.reload();
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/Play-Ground']);
           });
   }
 
@@ -126,7 +126,7 @@ export class PlayGroundComponent implements OnInit {
 
       (data) => {
         window.location.reload();
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/Play-Ground']);
           });
   }
 

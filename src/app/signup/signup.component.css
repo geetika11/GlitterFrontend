@@ -1,8 +1,4 @@
-body {
-    color: #999;
-    /*background:url("https://userscontent2.emaze.com/images/a777d902-b2dd-4a65-9812-a0079cf69043/bab38c28e7f1737fbce9a3d4c35bcafb.jpg");*/
-    font-family: 'Roboto', sans-serif;
-}
+
 .form-control, .form-control:focus, .input-group-addon {
     border-color: #e1e1e1;
     border-radius: 0;
@@ -59,12 +55,9 @@ body {
     outline: none !important;
 }
 .signup-form .btn:hover, .signup-form .btn:focus {
-    background: #179b81;
+    background :#19aa8d;
 }
-.signup-form a {
-    color: #19aa8d;
-    text-decoration: none;
-}	
+
 .signup-form a:hover {
     text-decoration: underline;
 }
@@ -81,3 +74,7 @@ body {
     font-size: 7px;
     position: absolute;
 }
+.btn:disabled {
+    cursor: not-allowed;
+    pointer-events: all !important;
+     }

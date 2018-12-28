@@ -1,4 +1,4 @@
-<body>
+
     <div class="signup-form">
         <div>
             <div class="container">
@@ -60,7 +60,7 @@
                                 <div *ngIf="checkImage" class="bg-danger">No Image is uploaded </div>
                             </div>
                         </div>
-                       <!-- <div class="form-group">-->
+                      
                         <div class="form-group">
                             <div class="input-group">
                                 <select  id="Country" name="Country" class="form-control bfh-countries" data-country="US" data-flags="true" (ngModel)="Country"></select>
@@ -69,10 +69,9 @@
                         <!--</div>-->
                         <div class="row mt20">
                             <div class="col-md-12">
-                                <span class="comment-form-control-wrap submit" (mouseenter) = "showValidationMessages = true" (mouseleave) = "showValidationMessages = false">
                                     <input type="submit" class="btn btn-lg btn-success btn-block"
-                                        (click)="adduser(signupForm.value)" value="Sign Up" [disabled]="signupForm.invalid" >
-                                </span>
+                                        (click)="adduser(signupForm.value)" value="Sign Up" [disabled]="signupForm.invalid"  >
+                               
                             </div>
                         </div>
                     </form>
@@ -80,4 +79,3 @@
             </div>
         </div>
     </div>
-</body>

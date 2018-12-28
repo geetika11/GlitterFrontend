@@ -17,7 +17,7 @@ export class SignupComponent implements OnInit {
   checkPassword: boolean = false;  
   checkPhoneNumber: boolean = false;  
   checkImage: boolean = false; 
-
+  
   constructor(private apiService: ApiService,private router: Router,private http:HttpClient) { }
  
   onFileChange(event) {
@@ -78,9 +78,9 @@ console.log('formvalue'+formvalue)
      this.apiService.RegisterUser(formvalue.FirstName,formvalue.LastName,formvalue.Email,formvalue.Password,formvalue.Country,formvalue.PhoneNumber,formvalue.Image)
           .subscribe(res => {
               console.log(res);
-              if (res == true) {
+             
                   this.router.navigate(["login"]);
-              }
+             
           })
   }
 

@@ -5,9 +5,6 @@
 <div  *ngIf="loggedIn">
   <app-dashboard></app-dashboard>
 
-<p>
-  search works!
-</p>
 
 <form #searchForm="ngForm" (ngSubmit)="SearchUser(searchForm.value)">
 
@@ -41,11 +38,11 @@
   <div *ngFor="let user of users">
     <div class="row">
       <div class="col-md-6 offset-3">     
-    <p>{{user.FirstName}}</p>
-    <p>{{user.LastName}}</p>
-    <img [src]="user.Image">
-    <p>{{user.Email}}</p>
-    <p>Follow:{{user.isFollowed}}</p>
+    <p>First Name: {{user.FirstName}}</p>
+    <p>Last Name: {{user.LastName}}</p>
+   <!-- <img [src]="user.Image">-->
+    <p>Email: {{user.Email}}</p>
+    
     <button *ngIf="!user.isFollowed" class="btn btn-success" (click)="Follow(user.UserId)">Follow</button>
     <button *ngIf="user.isFollowed" class="btn btn-danger" (click)="unFollow(user.UserId)">UnFollow</button>
     <hr>
@@ -58,9 +55,9 @@
   <div *ngFor="let tweet of tweets">
     <div class="row">
       <div class="col-md-6 offset-3">     
-    <p>{{tweet.Message}}</p>
-    <p>{{tweet.UserName}}</p>
-    <p>{{tweet.CreatedAt}}</p>
+    <p>Message: {{tweet.Message}}</p>
+    <p>User Name: {{tweet.UserName}}</p>
+    <p>Created At: {{tweet.CreatedAt}}</p>
     <!--<button class="btn btn-success" (click)="Follow(user.UserId)">Follow</button>-->
     <!--<img [src]="user.Image">-->
     <hr>
