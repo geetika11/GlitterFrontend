@@ -1,17 +1,21 @@
 
-    <div class="signup-form">
+<div class="asd">
+<div class="signup-form">
         <div>
             <div class="container">
                 <div class="respond text-center">
+                    <br>
+                    <br>
                     <h1>Create Account</h1>
                     <form #signupForm="ngForm" class="comment-form">                       
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i> </span>
-
                                 <input (ngModel)="FirstName" type="FirstName" name="FirstName" id="FirstName" class="form-control"
                                     placeholder="Enter Your FirstName" required>
-                                <div *ngIf="checkName"> First Name Required </div>
+                                    <div *ngIf="checkName" class="row">
+                                    <div> First Name Required </div>
+                            </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -30,8 +34,10 @@
 
                                 <input (ngModel)="Email" type="email" name="Email" id="Email" class="form-control"
                                     placeholder="Enter Your Email Address" required>
-                                <div *ngIf="checkEmail"> Email required</div>
+                                    <div *ngIf="checkEmail" >
+                                <div> Email required </div>
                             </div>
+                        </div>
                         </div>
                         <div class="form-group">
                             <div class="input-group">
@@ -61,17 +67,26 @@
                             </div>
                         </div>
                       
-                        <div class="form-group">
-                            <div class="input-group">
-                                <select  id="Country" name="Country" class="form-control bfh-countries" data-country="US" data-flags="true" (ngModel)="Country"></select>
-                            </div>
-                        </div>
+                        <div class="form-group">
+                                <div class="input-group">
+                                <select id="Country" name="Country" class="form-control abcdefg" ngModel>
+                                <option value="" disabled selected>Select your Country</option>
+                                <option value="India">India</option>
+                                <option value="USA">USA</option>
+                                <option value="England">England</option>
+                                <option value="Australia">Australia</option>
+                                <option value="Mexico">Mexico</option>
+                                <option value="Italy">Italy</option>
+                                <option value="France">France</option>
+                                <option value="Malaysia">Malaysia</option>
+                                </select>
+                                </div>
+                                </div> 
                         <!--</div>-->
                         <div class="row mt20">
                             <div class="col-md-12">
-                                    <input type="submit" class="btn btn-lg btn-success btn-block"
-                                        (click)="adduser(signupForm.value)" value="Sign Up" [disabled]="signupForm.invalid"  >
-                               
+                                    <input type="submit" class="btn btn-lg btn-primary btn-block"
+                                        (click)="adduser(signupForm.value)" value="Sign Up" [disabled]="signupForm.invalid"  >                              
                             </div>
                         </div>
                     </form>
@@ -79,3 +94,4 @@
             </div>
         </div>
     </div>
+</div>

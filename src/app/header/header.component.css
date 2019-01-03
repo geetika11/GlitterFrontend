@@ -1,3 +1,26 @@
 .header-top{
     padding-top: 10px;
+   
+}
+.navbar{
+    background-color:currentColor;
+    flex-wrap: wrap;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    font-family: cursive;
+    font-size: large;
+    height: 75px;   
+}
+.navbar-nav{
+    margin-left: auto;
+}
+.main{
+    text-align: center;
+    color: darkcyan;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: darkcyan;
 }

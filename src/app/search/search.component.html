@@ -5,44 +5,30 @@
 <div  *ngIf="loggedIn">
   <app-dashboard></app-dashboard>
 
-
 <form #searchForm="ngForm" (ngSubmit)="SearchUser(searchForm.value)">
-
-<input type="text" name="SearchString" id="SearchString" (ngModel)="SearchString">
+  <br>
+<div class="col-md-3 offset-4">
+<input type="text" name="SearchString" id="SearchString" (ngModel)="SearchString" placeholder="Search">
 <button type="submit"><span><i class="fa fa-search" aria-hidden="true"></i></span></button>
-<!--
-  <div id="tabs">
-  <input type="radio" name="searchbypeople" checked="checked" id="people">
-    <label for="people">People</label>
-  <input type="radio" name="searchbypost"  id="posts">
-    <label for="posts">Post</label>
-
-    <div id="people-tab" class="tab">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      </div>
-    
-      <div id="posts-tab" class="tab">
-      Donec venenatis quam sit amet neque gravida, at commodo lacus gravida.
-      </div>
-  </div>-->
+<br>
 
   <div id="tabs">
     <input type="radio" name="search" id="toggle-people" value="people"  (ngModel)="search" checked/>
-    <label for="toggle-people">People</label>
+    <button (click)="SearchUser(searchForm.value)"><label for="toggle-people">People</label></button>
     <input type="radio" name="search" value="posts" id="toggle-posts" (ngModel)="search"/>
-    <label for="toggle-posts">Posts</label>  
+    <button (click)="SearchUser(searchForm.value)"><label for="toggle-posts">Posts</label></button>  
   </div>
+</div>
 </form>
 
 <div *ngIf="users">
   <div *ngFor="let user of users">
     <div class="row">
-      <div class="col-md-6 offset-3">     
+      <div class="col-md-6 offset-4">
+        <br>     
     <p>First Name: {{user.FirstName}}</p>
-    <p>Last Name: {{user.LastName}}</p>
-   <!-- <img [src]="user.Image">-->
-    <p>Email: {{user.Email}}</p>
-    
+    <p>Last Name: {{user.LastName}}</p>  
+    <p>Email: {{user.Email}}</p>    
     <button *ngIf="!user.isFollowed" class="btn btn-success" (click)="Follow(user.UserId)">Follow</button>
     <button *ngIf="user.isFollowed" class="btn btn-danger" (click)="unFollow(user.UserId)">UnFollow</button>
     <hr>
@@ -50,16 +36,14 @@
   </div>
 </div>
 </div>
-
 <div *ngIf="tweets">
   <div *ngFor="let tweet of tweets">
     <div class="row">
-      <div class="col-md-6 offset-3">     
+      <div class="col-md-6 offset-3">
+        <br>     
     <p>Message: {{tweet.Message}}</p>
     <p>User Name: {{tweet.UserName}}</p>
-    <p>Created At: {{tweet.CreatedAt}}</p>
-    <!--<button class="btn btn-success" (click)="Follow(user.UserId)">Follow</button>-->
-    <!--<img [src]="user.Image">-->
+    <p>Created At: {{tweet.CreatedAt | date}}</p>
     <hr>
   </div>
   </div>

@@ -20,6 +20,7 @@ export class PlayGroundComponent implements OnInit {
   constructor(private playgroundService: PlaygroundService, private apiservice:ApiService,private router:Router) { }
   public ID:String;
   public loggedIn:boolean;
+  
   ngOnInit() {
     this.ID=localStorage.getItem('ID');
     if(this.ID!=null){
@@ -66,6 +67,7 @@ export class PlayGroundComponent implements OnInit {
 
   newTweet(formValues) {
     var id = localStorage.getItem('ID').toString();
+    
     console.log(formValues.message);
     this.playgroundService.composeTweet(id, formValues.Message)
       .subscribe(

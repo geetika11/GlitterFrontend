@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -8,6 +9,7 @@ import { environment } from '../../environments/environment';
 export class PlaygroundService {
 
   constructor(private http:HttpClient) {}
+
 
     composeTweet(UserID:String,Message:String) {
       const newTweetObject = Object.assign({}, {UserID,Message});

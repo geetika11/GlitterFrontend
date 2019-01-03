@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 public loggedIn;
 public Username;
-  constructor() { 
+  constructor(private route:Router) { 
     
   }
 
@@ -21,7 +22,10 @@ public Username;
     console.log(this.loggedIn);
     localStorage.removeItem('ID');
     localStorage.removeItem('Username');
+  //  window.location.reload();
     this.loggedIn=localStorage.getItem('ID');
     this.Username=localStorage.getItem('Username');
+   // this.route.navigate['../login']
+
   }
 }

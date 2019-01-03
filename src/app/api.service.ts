@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { environment } from '.././environments/environment';
 
 @Injectable({
@@ -18,6 +18,7 @@ export class ApiService {
 
   }
   LoginUser(Email: string, Password: string) {
+   
     const userRegistrationObject = Object.assign({}, { Email, Password });
     return this.http.post(`${environment.apiUrl}/login`, userRegistrationObject);
   }

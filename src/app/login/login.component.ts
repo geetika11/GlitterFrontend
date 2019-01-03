@@ -26,7 +26,11 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('ID',this.x.ID);
           localStorage.setItem('Username',this.x.Username);
           this.invalidLoginCredentials = false;
-          this.router.navigate(['/dashboard']);
+          
+          this.router.navigate(['/Play-Ground']);
+          window.location.reload();
+          this.router.navigate(['/Play-Ground']);
+          
         },
         (error) => {
           this.errorList = [];

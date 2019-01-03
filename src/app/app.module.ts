@@ -53,9 +53,19 @@ const appRoutes:Routes=[
     pathMatch: 'full'
   },
   {
+    path: '',
+    component: LoginComponent,
+    pathMatch: 'full'
+  },
+  {
     path: 'analytics',
     component: AnalyticsComponent,
     pathMatch: 'full'
+  },
+  {
+    path: '**',
+    redirectTo: '/login',
+   // pathMatch: 'full'
   }
 
 ];

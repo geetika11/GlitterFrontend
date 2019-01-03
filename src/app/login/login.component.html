@@ -1,8 +1,7 @@
-
-<body>
-<div class="signup-form">
-<div class="container">
-    <div >
+<div class="xyz">
+    <div class="signup-form" >
+<div class="container"style="height: 100%;">
+    <div style="height: 100%;" class="abc" >
 
         <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)" class="well form-horizontal">
             <fieldset>
@@ -11,9 +10,8 @@
                    
                     <div class="form-group">
                         <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-paper-plane"></i>
-                            </span>
-                            <input (ngModel)="Email" type="email" name="Email" id="Email" class="form-control abc"
+                            
+                            <i class="fa fa-paper-plane"></i> <input (ngModel)="Email" type="email" name="Email" id="Email" class="form-control abc"
                                 placeholder="Enter Email Address" required>
                         </div>
                     </div>
@@ -23,14 +21,14 @@
                             <input (ngModel)="Password" type="password" class="form-control abc" name="Password" id="Password"  placeholder="Enter Password" required>
                              </div>
                     </div>
-                    <div class="row">
+                    <div class="row abcd">
                         <div class="form-group">
                             <span class="comment-form-control-wrap submit input-group-addon" (mouseenter)="showValidationMessages = true"
                                 (mouseleave)="showValidationMessages = false"></span>
                                 <div class="input-group">
-                                    <input type="submit" name="submit" id="submit"  class="btn btn-lg btn-success btn-block" value="login"
+                                    <input type="submit" name="submit" id="submit"  class="btn btn-lg btn-success btn-block" value="Login"
                                         class="btn text-centre" [disabled]="loginForm.invalid">
-                                    <!--</span>-->
+                                  
                                 </div>                        
                             </div>
                     </div>
@@ -45,4 +43,4 @@
     </div>
     </div>
 </div>
-</body>
+</div>

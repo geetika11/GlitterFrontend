@@ -1,8 +1,8 @@
-body {
+.xyz {
     color: #999;
- background: url("http://acshub.co.uk/hubassets/uploads/2016/09/acs-website-background-building-e1472862899804.jpg");
-    font-family: 'Roboto', sans-serif;
-    /*height: 700px;*/
+    font-family: 'Roboto', sans-serif;   
+    background: url("http://acshub.co.uk/hubassets/uploads/2016/09/acs-website-background-building-e1472862899804.jpg");
+   
 }
 .form-control, .form-control:focus, .input-group-addon {
     border-color: #e1e1e1;
@@ -11,10 +11,10 @@ body {
 
 }
 .signup-form {
-    width: 390px;
     margin: 0 auto;
     padding: 25px 0;
     color: white;
+    height: 650px;
     background: transparent;
 }
 .signup-form h1 {
@@ -35,6 +35,10 @@ body {
 }
 .signup-form .form-group {
     margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 .signup-form label {
     font-weight: normal;
@@ -45,16 +49,17 @@ body {
     box-shadow: none !important;
     border-width: 0 0 1px 0;
     color: white;
-       text-decoration-color: white;
+    text-decoration-color: white;
     background: transparent;
 }	
 .signup-form .input-group-addon {
     max-width: 50px;
-    text-align: center;
+   
     color: white;
+   
     background: none;
     border-width: 0 0 1px 0;
-    padding-left: 5px;
+  
 }
 .signup-form .btn {        
     font-size: 16px;
@@ -64,6 +69,9 @@ body {
     border: none;
     color: black;
     min-width: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     outline: none !important;
 }
 .signup-form .btn:hover, .signup-form .btn:focus {
@@ -82,6 +90,7 @@ body {
 }
 .signup-form .fa-paper-plane {
     font-size: 17px;
+
 }
 .signup-form .fa-check {
     color: #fff;
@@ -97,3 +106,30 @@ body {
     cursor: not-allowed;
     pointer-events: all !important;
      }
+
+.signup-form .main {
+    height: 100%;
+    width: 450px;
+    
+}
+
+.container {
+   width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.abc{
+    height: 100%;
+    display: flex;
+    width:350px;
+    justify-content: center;
+    align-items: center;
+}
+.abcd{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
